@@ -1,26 +1,33 @@
-# Ember-logger-test
+# ember-logger-test
 
-This README outlines the details of collaborating on this Ember addon.
+`ember-logger-test` makes it easy to test your use of `Ember.Logger`.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+`ember install ember-logger-test`
 
-## Running
+## Usage
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+`ember-logger-test` adds a custom assertion to QUnit called `logs`:
 
-## Running Tests
+```js
+test('test my error handling', function(assert) {
+  assert.expect(2);
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+  assert.logs('error', '`id` cannot be blank', () => {
+    model.save();
+  });
 
-## Building
+  assert.logs('warn', '`id` was set to `null`', () => {
+    model.id = null;
+    model.save();
+  });
+```
 
-* `ember build`
+`logs` expects three arguments:
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+* The log type, including `assert`, `debug`, `error`, `info`, `log`, and `warn`.
+* The expected message to be logged.
+* A callback that triggers the logger.
+
+Note: you must use `assert.expect` to ensure that the logs were run.
