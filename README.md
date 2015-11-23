@@ -1,6 +1,6 @@
 # ember-logger-test
 
-`ember-logger-test` makes it easy to test your use of `Ember.Logger`.
+Test `Ember.Logger` assertions with ease.
 
 ## Installation
 
