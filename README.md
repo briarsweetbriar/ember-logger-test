@@ -1,3 +1,6 @@
+[![npm version](https://badge.fury.io/js/ember-logger-test.svg)](https://badge.fury.io/js/ember-logger-test)
+[![Build Status](https://travis-ci.org/null-null-null/ember-logger-test.svg?branch=v0.0.2)](https://travis-ci.org/null-null-null/ember-logger-test)
+
 # ember-logger-test
 
 Test `Ember.Logger` assertions with ease.
